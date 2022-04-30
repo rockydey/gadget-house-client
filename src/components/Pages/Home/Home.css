@@ -1,0 +1,15 @@
+.banner-section {
+    height: 440px;
+    background-image: url(../../../images/banner.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.banner-section p {
+    width: 700px;
+}
+
+.banner-section a {
+    color: #e5b94a;
+    border: 2px solid #e5b94a;
+}

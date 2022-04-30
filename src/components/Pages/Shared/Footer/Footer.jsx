@@ -23,7 +23,7 @@ const Footer = () => {
             </div>
 
             {/* Importent Links Footer */}
-            <div className='links-footer md:h-48 h-52 flex md:flex-row flex-col md:items-center justify-center'>
+            <div className='links-footer h-52 flex md:flex-row flex-col md:items-center justify-center'>
                 <div className='text'>
                     <div className='logo'>
                         <Link className='md:text-4xl text-3xl font-semibold lg:ml-20 md:ml-10 ml-6' to='/'>Gadget <span>House</span></Link>
@@ -45,7 +45,7 @@ const Footer = () => {
             </div>
 
             {/* Copyrights Footer */}
-            <div className='copyrights-footer md:h-16 h-12 flex items-center justify-center'>
+            <div className='copyrights-footer h-12 flex items-center justify-center'>
                 <h3 className='text-white text-lg font-normal'>Copyright © {year.getFullYear()} <a href='/'>Gadget House</a></h3>
             </div>
         </footer>
