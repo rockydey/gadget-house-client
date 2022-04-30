@@ -34,7 +34,7 @@ const Footer = () => {
                         <div className='flex items-center text-white md:text-base text-sm md:mt-2'><FaComments></FaComments> <p className='ml-2'>gadgethouse@house.com</p></div>
                     </div>
                 </div>
-                <div className='subscribe md:ml-auto md:mt-0 ml-6 mt-1 md:ml-auto lg:mr-20 md:mr-12 md:mt-0 mt-4'>
+                <div className='subscribe md:ml-auto ml-6 lg:mr-20 md:mr-12 md:mt-0 mt-4'>
                     <h2 className='md:text-3xl text-2xl uppercase md:mb-3 mb-1'>Let's Stay In Touch</h2>
                     <p className='md:text-lg text-base md:block hidden text-white md:mb-3 mb-1'>Get our top updates straight to your inbox!</p>
                     <div>
