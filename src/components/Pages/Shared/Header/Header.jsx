@@ -10,7 +10,7 @@ const Header = () => {
         <header className='header-container'>
             <nav className="navigation h-20 w-full flex items-center text-black py-2">
                 <div className='logo'>
-                    <Link className='md:text-4xl text-3xl font-semibold lg:ml-20 md:ml-10 ml-6' to='/'>Laptop <span>Spot</span></Link>
+                    <Link className='md:text-4xl text-3xl font-semibold lg:ml-20 md:ml-10 ml-6' to='/'>Gadget <span>House</span></Link>
                 </div>
                 <button onClick={() => setIsExpanded(!isExpanded)} className="hamburger w-10 h-10 p-2 rounded-full md:mr-6">
                     {

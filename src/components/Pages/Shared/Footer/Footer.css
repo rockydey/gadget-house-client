@@ -1,0 +1,33 @@
+.social-footer {
+    background-color: #08192d;
+}
+
+.social-icon svg {
+    cursor: pointer;
+}
+
+.social-icon svg:hover {
+    color: #e5b94a;
+}
+
+.links-footer {
+    background-color: #0a183d;
+}
+
+.links-footer .subscribe h2 {
+    color: #e5b94a;
+}
+
+.links-footer .subscribe div .btn {
+    background-color: #e5b94a;
+    border-radius: 0 6px 6px 0;
+    margin: -20px;
+}
+
+.copyrights-footer {
+    background-color: #08192df9;
+}
+
+.copyrights-footer a {
+    color: #e5b94a;
+}
