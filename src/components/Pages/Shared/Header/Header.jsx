@@ -22,7 +22,6 @@ const Header = () => {
                 }>
                     <CustomLink className='mx-4 w-full text-lg' to='/home'>Home</CustomLink>
                     <CustomLink className='mx-4 w-full text-lg' to='/blogs'>Blogs</CustomLink>
-                    <CustomLink className='mx-4 w-full text-lg' to='/inventory'>Inventory</CustomLink>
                     <CustomLink className='mx-4 w-full text-lg' to='/manageinventories'>Manage Inventories</CustomLink>
                     <CustomLink className='mx-4 w-full text-lg' to='/manage'>Manage Items</CustomLink>
                     <CustomLink className='mx-4 w-full text-lg' to='/additem'>Add Item</CustomLink>
