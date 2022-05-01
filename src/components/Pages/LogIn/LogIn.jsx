@@ -12,12 +12,12 @@ const LogIn = () => {
     const [password, setPassword] = useState('');
 
     const [signInWithGoogle, user1] = useSignInWithGoogle(auth);
-    const [signInWithEmailAndPassword, user2, error,] = useSignInWithEmailAndPassword(auth);
+    const [
+        signInWithEmailAndPassword,
+        user2,
+        error2,
+    ] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-
-    const navigate = useNavigate();
-    let location = useLocation();
-    let from = location.state?.from?.pathname || "/home";
 
     const handleEmail = event => {
         setEmail(event.target.value);
@@ -31,13 +31,17 @@ const LogIn = () => {
         signInWithEmailAndPassword(email, password);
     };
 
-    const switchSignUp = () => {
-        navigate('/signup');
-    };
-
     const resetPassword = async () => {
         await sendPasswordResetEmail(email);
         toast("Reset Password Email Sent!");
+    };
+
+    const navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/home";
+
+    const switchSignUp = () => {
+        navigate('/signup');
     };
 
     if (user1 || user2) {
@@ -62,7 +66,7 @@ const LogIn = () => {
                 <label className='font-semibold mb-1' htmlFor="password">Password</label>
                 <input onBlur={handlePassword} className='pr-10 py-2 pl-3 rounded-md' type="password" name="password" id="password" placeholder='Enter Your Password' required />
                 <p className='text-red-600'>
-                    {error?.message}
+                    {error2?.message}
                 </p>
                 <div className='flex justify-between items-center mt-6'>
                     <p onClick={resetPassword} className='text-base font-semibold'>Forget Your Password?</p>

@@ -8,7 +8,7 @@ import auth from '../../../../firebase.init';
 import { signOut } from 'firebase/auth';
 
 const Header = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const [isExpanded, setIsExpanded] = useState(false);
 
     const logout = () => {
