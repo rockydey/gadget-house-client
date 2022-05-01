@@ -1,0 +1,27 @@
+.login {
+    border: 2px solid #e5b94a;
+    width: 400px;
+}
+
+.login-form input:not([type=submit]) {
+    background-color: hsla(0, 0%, 93%, .9);
+    border: none;
+}
+
+.login-form div .btn-submit {
+    background-color: #e5b94a;
+    cursor: pointer;
+}
+
+.login-form div p:hover {
+    text-decoration: underline;
+}
+
+.login .line {
+    border: 1px solid hsla(0, 0%, 50%, .2);
+}
+
+.create-account button, .social-login button {
+    border: 1px solid #878787;
+    color: #878787;
+}
