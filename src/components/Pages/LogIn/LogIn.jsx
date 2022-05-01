@@ -24,7 +24,7 @@ const LogIn = () => {
                 <div className='line w-6/12'></div>
             </div>
 
-            <div className="login-form flex flex-col">
+            <form className="login-form flex flex-col">
                 <label className='font-semibold mb-1' htmlFor="email">Email Address</label>
                 <input className='pr-10 py-2 pl-3 rounded-md mb-3' type="email" name="email" id="email" placeholder='Enter Your Email' required />
                 <label className='font-semibold mb-1' htmlFor="password">Password</label>
@@ -33,7 +33,7 @@ const LogIn = () => {
                     <p className='text-base font-semibold'>Forget Your Password?</p>
                     <input className='btn-submit text-white text-lg font-semibold px-8 py-2 rounded-full' type="submit" value="Login" />
                 </div>
-            </div>
+            </form>
 
             <div className='line my-6'></div>
 

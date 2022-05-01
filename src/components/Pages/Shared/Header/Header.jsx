@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MenuAlt3Icon, XIcon } from '@heroicons/react/solid';
 import './Header.css';
 import CustomLink from '../CustomLink/CustomLink';
@@ -14,6 +14,7 @@ const Header = () => {
     const logout = () => {
         signOut(auth);
     };
+
     return (
         <header className='header-container'>
             <nav className="navigation h-20 w-full flex items-center text-black py-2">
