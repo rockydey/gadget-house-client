@@ -13,6 +13,10 @@
     cursor: pointer;
 }
 
+.login-form div p {
+    cursor: pointer;
+}
+
 .login-form div p:hover {
     text-decoration: underline;
 }
@@ -21,7 +25,8 @@
     border: 1px solid hsla(0, 0%, 50%, .2);
 }
 
-.create-account button, .social-login button {
+.create-account button,
+.social-login button {
     border: 1px solid #878787;
     color: #878787;
 }
