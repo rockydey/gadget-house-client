@@ -2,8 +2,11 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Google from '../../../images/google.png';
 import './SignUp.css';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
 
 const SignUp = () => {
+    const [signInWithGoogle, user1, loading1, error1] = useSignInWithGoogle(auth);
     const [agree, setAgree] = useState(false);
     const navigate = useNavigate();
     const switchLogIn = () => {
@@ -13,7 +16,7 @@ const SignUp = () => {
         <div className='login p-6 mx-auto my-14 rounded-xl'>
             <h1 className='text-center text-lg font-semibold mb-3'>To continue, log in to Gadget House.</h1>
             <div className="social-login">
-                <button className='flex items-center justify-center w-full rounded-full uppercase py-2 mt-2 font-semibold'><img className='mr-2' width={18} src={Google} alt="" /><span>Sign Up With Google</span></button>
+                <button onClick={() => signInWithGoogle()} className='flex items-center justify-center w-full rounded-full uppercase py-2 mt-2 font-semibold'><img className='mr-2' width={18} src={Google} alt="" /><span>Sign Up With Google</span></button>
             </div>
 
             <div className='flex justify-center items-center my-6'>
