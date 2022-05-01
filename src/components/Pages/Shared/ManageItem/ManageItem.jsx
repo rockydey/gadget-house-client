@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Item.css';
+import './ManageItem.css';
 
-const Item = ({ item }) => {
+const ManageItem = ({ item, handleDeleteDevice }) => {
     const { _id, name, picture, quantity, supplier, price, description } = item;
     const navigate = useNavigate();
     const handleStockUpdate = id => {
@@ -19,8 +19,9 @@ const Item = ({ item }) => {
                 <p className='w-80 mb-3'><small>{description}</small></p>
             </div>
             <button onClick={() => handleStockUpdate(_id)} className='btn-stock px-3 py-2 rounded-md text-white'>Update Stock</button>
+            <button onClick={() => handleDeleteDevice(_id)} className='btn-delete ml-3 px-3 py-2 rounded-md'>Delete Device</button>
         </div>
     );
 };
 
-export default Item;
+export default ManageItem;

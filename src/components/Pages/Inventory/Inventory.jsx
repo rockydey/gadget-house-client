@@ -75,12 +75,12 @@ const Inventory = () => {
                     <p className='mb-1 text-base'>Supplier: {item.supplier}</p>
                     <p className='w-80 mb-3'><small>{item.description}</small></p>
                 </div>
-                <button onClick={() => handleDelivered(id)} className='px-3 py-2 rounded-md text-white text-lg'>Delivered</button>
+                <button onClick={() => handleDelivered(id)} className='btn-stock px-3 py-2 rounded-md text-white text-lg'>Delivered</button>
             </div>
             <div className='restock'>
                 <h1 className='text-center text-3xl font-semibold mb-5'>Restock Item</h1>
                 <div className='restock-field flex flex-col items-center'>
-                    <input ref={restockRef} className='pr-32 pl-10 py-3 border-2 rounded-md' type="text" name="number" placeholder='Restock Item' />
+                    <input autoComplete='off' ref={restockRef} className='pr-32 pl-10 py-3 border-2 rounded-md' type="text" name="number" placeholder='Restock Item' />
                     <input onClick={() => handleRestock(id)} className='w-40 py-3 btn rounded-full text-white mt-3 text-lg' type="submit" value="Restock Now" />
                 </div>
             </div>
