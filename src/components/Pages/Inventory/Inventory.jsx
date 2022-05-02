@@ -70,7 +70,7 @@ const Inventory = () => {
                 <img className='w-40' src={item.picture} alt="" />
                 <div className='mt-3'>
                     <h3 className='text-xl font-semibold mb-1'>{item.name}</h3>
-                    <p className='text-base'>Price: {item.price}</p>
+                    <p className='text-base'>Price: ${item.price}</p>
                     <p className='text-base'>Quantity: {item.quantity === 0 ? <span className='text-red-600'>Stock Out</span> : item.quantity}</p>
                     <p className='mb-1 text-base'>Supplier: {item.supplier}</p>
                     <p className='w-80 mb-3'><small>{item.description}</small></p>

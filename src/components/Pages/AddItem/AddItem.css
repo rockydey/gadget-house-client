@@ -13,3 +13,9 @@ input:not([type=submit]) {
     background-color: #e5b94a;
     cursor: pointer;
 }
+
+@media only screen and (max-width:420px) {
+    .add-item {
+        width: 380px;
+    }
+}
