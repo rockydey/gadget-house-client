@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react';
 import ManageItem from '../Shared/ManageItem/ManageItem';
 import Spinner from '../Shared/Spinner/Spinner';
 import './ManageInventories.css';
+import { useNavigate } from 'react-router-dom';
 
 const ManageInventories = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false);
+
+    const navigate = useNavigate();
 
     useEffect(() => {
         const loadData = async () => {
@@ -33,21 +36,30 @@ const ManageInventories = () => {
                     setItems(remain);
                 });
         }
-    }
+    };
+
+    const handleAddItem = () => {
+        navigate('/additem');
+    };
     return (
-        <div className=' my-14'>
-            <h1 className='text-center text-4xl font-semibold my-8'>All Collections</h1>
-            {
-                loading ? <Spinner></Spinner> : <div className='items grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10'>
-                    {
-                        items.map(item => <ManageItem
-                            key={item._id}
-                            item={item}
-                            handleDeleteDevice={handleDeleteDevice}
-                        ></ManageItem>)
-                    }
-                </div>
-            }
+        <div className='manage-inventories my-14'>
+            <div>
+                <h1 className='text-center text-4xl font-semibold my-8'>All Collections</h1>
+                {
+                    loading ? <Spinner></Spinner> : <div className='items grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10'>
+                        {
+                            items.map(item => <ManageItem
+                                key={item._id}
+                                item={item}
+                                handleDeleteDevice={handleDeleteDevice}
+                            ></ManageItem>)
+                        }
+                    </div>
+                }
+            </div>
+            <div className='text-center mt-10'>
+                <button onClick={handleAddItem} className='btn-add-item ml-3 px-3 py-2 rounded-md text-lg font-semibold'>Add New Item</button>
+            </div>
         </div>
     );
 };

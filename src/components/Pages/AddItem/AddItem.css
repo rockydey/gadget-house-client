@@ -1,0 +1,15 @@
+.add-item {
+    border: 2px solid #e5b94a;
+    width: 520px;
+}
+
+.product-form textarea,
+input:not([type=submit]) {
+    background-color: hsla(0, 0%, 93%, .9);
+    border: none;
+}
+
+.product-form div .btn-add-item {
+    background-color: #e5b94a;
+    cursor: pointer;
+}
