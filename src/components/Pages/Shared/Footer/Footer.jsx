@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
     const year = new Date();
+
     return (
         <footer className='h-80 w-full'>
             {/* Social Icon Footer */}
@@ -13,12 +14,12 @@ const Footer = () => {
                     <h3 className='text-white'>Get connected with us on social networks :</h3>
                 </div>
                 <div className='social-icon flex md:mt-0 mt-1 md:ml-auto lg:mr-20 md:mr-12'>
-                    <FaGoogle className='text-white mx-4 text-xl'></FaGoogle>
-                    <FaFacebook className='text-white mx-4 text-xl'></FaFacebook>
-                    <FaTwitter className='text-white mx-4 text-xl'></FaTwitter>
-                    <FaPinterest className='text-white mx-4 text-xl'></FaPinterest>
-                    <FaInstagram className='text-white mx-4 text-xl'></FaInstagram>
-                    <FaGooglePlay className='text-white ml-4 mr-1 text-xl'></FaGooglePlay>
+                    <a href="https://www.google.com/"><FaGoogle className='text-white mx-4 text-xl'></FaGoogle></a>
+                    <a href="https://www.facebook.com/"><FaFacebook className='text-white mx-4 text-xl'></FaFacebook></a>
+                    <a href="https://twitter.com/"><FaTwitter className='text-white mx-4 text-xl'></FaTwitter></a>
+                    <a href="https://www.pinterest.com/"><FaPinterest className='text-white mx-4 text-xl'></FaPinterest></a>
+                    <a href="https://www.instagram.com/"><FaInstagram className='text-white mx-4 text-xl'></FaInstagram></a>
+                    <a href="https://play.google.com/store/apps"><FaGooglePlay className='text-white ml-4 mr-1 text-xl'></FaGooglePlay></a>
                 </div>
             </div>
 

@@ -2,11 +2,11 @@
     background-color: #08192d;
 }
 
-.social-icon svg {
+.social-icon a svg {
     cursor: pointer;
 }
 
-.social-icon svg:hover {
+.social-icon a svg:hover {
     color: #e5b94a;
 }
 

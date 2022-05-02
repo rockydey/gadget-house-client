@@ -19,6 +19,10 @@
     color: #e5b94a;
 }
 
+.infographic-section .btn-register {
+    background-color: #e5b94a;
+}
+
 @media only screen and (max-width: 420px) {
     .banner-section p {
         width: 100%;
