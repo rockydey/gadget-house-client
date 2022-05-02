@@ -7,7 +7,6 @@ import Home from './components/Pages/Home/Home';
 import Inventory from './components/Pages/Inventory/Inventory';
 import LogIn from './components/Pages/LogIn/LogIn';
 import ManageInventories from './components/Pages/ManageInventories/ManageInventories';
-import ManageItems from './components/Pages/ManageItems/ManageItems';
 import MyItems from './components/Pages/MyItems/MyItems';
 import NotFound from './components/Pages/NotFound/NotFound';
 import Footer from './components/Pages/Shared/Footer/Footer';
@@ -33,7 +32,6 @@ function App() {
             <ManageInventories></ManageInventories>
           </RequireAuth>
         }></Route>
-        <Route path='/manage' element={<ManageItems></ManageItems>}></Route>
         <Route path='/additem' element={<AddItem></AddItem>}></Route>
         <Route path='/myitems' element={<MyItems></MyItems>}></Route>
         <Route path='/login' element={<LogIn></LogIn>}></Route>
