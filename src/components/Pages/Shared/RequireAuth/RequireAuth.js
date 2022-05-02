@@ -9,7 +9,7 @@ function RequireAuth({ children }) {
     if (loading) {
         return <p>Loading...</p>;
     }
-    if (!auth.user) {
+    if (!user) {
         return <Navigate to="/login" state={{ from: location }} replace />;
     }
 

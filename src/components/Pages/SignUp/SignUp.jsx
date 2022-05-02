@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Google from '../../../images/google.png';
 import './SignUp.css';
@@ -15,9 +15,9 @@ const SignUp = () => {
         error2,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+    const confirmPasswordRef = useRef('');
     const [errorValue, setErrorValue] = useState('');
     const [agree, setAgree] = useState(false);
     const navigate = useNavigate();
@@ -25,18 +25,13 @@ const SignUp = () => {
     const switchLogIn = () => {
         navigate('/login');
     };
-    const handleEmail = event => {
-        setEmail(event.target.value);
-    };
-    const handlePassword = event => {
-        setPassword(event.target.value);
-    };
-    const handleConfirmPassword = event => {
-        setConfirmPassword(event.target.value);
-    };
 
     const handleSubmit = event => {
         event.preventDefault();
+
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+        const confirmPassword = confirmPasswordRef.current.value;
 
         if (password !== confirmPassword) {
             setErrorValue("Both passwords didn't match!");
@@ -65,11 +60,11 @@ const SignUp = () => {
 
             <form onSubmit={handleSubmit} className="login-form flex flex-col">
                 <label className='font-semibold mb-1' htmlFor="email">Email Address</label>
-                <input onBlur={handleEmail} className='pr-10 py-2 pl-3 rounded-md mb-3' type="email" name="email" id="email" placeholder='Enter Your Email' required />
+                <input ref={emailRef} className='pr-10 py-2 pl-3 rounded-md mb-3' type="email" name="email" id="email" placeholder='Enter Your Email' required />
                 <label className='font-semibold mb-1' htmlFor="password">Password</label>
-                <input onBlur={handlePassword} className='pr-10 py-2 pl-3 rounded-md mb-3' type="password" name="password" id="password" placeholder='Enter Your Password' required />
+                <input ref={passwordRef} className='pr-10 py-2 pl-3 rounded-md mb-3' type="password" name="password" id="password" placeholder='Enter Your Password' required />
                 <label className='font-semibold mb-1' htmlFor="confirmPassword">Confirm Password</label>
-                <input onBlur={handleConfirmPassword} className='pr-10 py-2 pl-3 rounded-md' type="password" name="confirmPassword" id="confirmPassword" placeholder='Enter Your Password Again' required />
+                <input ref={confirmPasswordRef} className='pr-10 py-2 pl-3 rounded-md' type="password" name="confirmPassword" id="confirmPassword" placeholder='Enter Your Password Again' required />
 
 
                 <p className='text-red-600'>

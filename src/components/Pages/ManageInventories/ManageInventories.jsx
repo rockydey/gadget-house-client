@@ -6,15 +6,18 @@ import './ManageInventories.css';
 const ManageInventories = () => {
     const [items, setItems] = useItems();
     const handleDeleteDevice = id => {
-        const url = `https://hidden-wave-36381.herokuapp.com/items/${id}`;
-        fetch(url, {
-            method: "DELETE"
-        })
-            .then(res => res.json())
-            .then(data => {
-                const remain = items.filter(item => item._id !== id);
-                setItems(remain);
-            });
+        const confirm = window.confirm("Are you sure you want to delete?");
+        if (confirm) {
+            const url = `https://hidden-wave-36381.herokuapp.com/items/${id}`;
+            fetch(url, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    const remain = items.filter(item => item._id !== id);
+                    setItems(remain);
+                });
+        }
     }
     return (
         <div className=' my-14'>

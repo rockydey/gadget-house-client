@@ -1,37 +1,40 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './LogIn.css';
 import Google from '../../../images/google.png';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { signInWithEmailAndPassword } from "firebase/auth";
 import auth from '../../../firebase.init';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const LogIn = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const emailRef = useRef('');
+    const passwordRef = useRef('');
+    const [user2, setUser2] = useState('');
+    const [error2, setError2] = useState('');
 
     const [signInWithGoogle, user1] = useSignInWithGoogle(auth);
-    const [
-        signInWithEmailAndPassword,
-        user2,
-        error2,
-    ] = useSignInWithEmailAndPassword(auth);
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
-
-    const handleEmail = event => {
-        setEmail(event.target.value);
-    };
-    const handlePassword = event => {
-        setPassword(event.target.value);
-    };
 
     const handleSubmit = event => {
         event.preventDefault();
-        signInWithEmailAndPassword(email, password);
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                setUser2(user);
+            })
+            .catch((error) => {
+                const errorMessage = error.message;
+                setError2(errorMessage);
+            });
     };
 
     const resetPassword = async () => {
+        const email = emailRef.current.value;
         await sendPasswordResetEmail(email);
         toast("Reset Password Email Sent!");
     };
@@ -62,11 +65,11 @@ const LogIn = () => {
 
             <form onSubmit={handleSubmit} className="login-form flex flex-col">
                 <label className='font-semibold mb-1' htmlFor="email">Email Address</label>
-                <input onBlur={handleEmail} className='pr-10 py-2 pl-3 rounded-md mb-3' type="email" name="email" id="email" placeholder='Enter Your Email' required />
+                <input ref={emailRef} className='pr-10 py-2 pl-3 rounded-md mb-3' type="email" name="email" id="email" placeholder='Enter Your Email' required />
                 <label className='font-semibold mb-1' htmlFor="password">Password</label>
-                <input onBlur={handlePassword} className='pr-10 py-2 pl-3 rounded-md' type="password" name="password" id="password" placeholder='Enter Your Password' required />
+                <input ref={passwordRef} className='pr-10 py-2 pl-3 rounded-md' type="password" name="password" id="password" placeholder='Enter Your Password' required />
                 <p className='text-red-600'>
-                    {error2?.message}
+                    {error2}
                 </p>
                 <div className='flex justify-between items-center mt-6'>
                     <p onClick={resetPassword} className='text-base font-semibold'>Forget Your Password?</p>

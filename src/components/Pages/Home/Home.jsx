@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import useItems from '../../hooks/useItems';
 import Item from '../Shared/Item/Item';
+import Spinner from '../Shared/Spinner/Spinner';
 import './Home.css';
 
 const Home = () => {
