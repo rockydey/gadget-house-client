@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useItems from '../../hooks/useItems';
 import Item from '../Shared/Item/Item';
 import Spinner from '../Shared/Spinner/Spinner';
 import './Home.css';
 
 const Home = () => {
-    const [items] = useItems();
+    const [items, setItems] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        const loadData = async () => {
+            setLoading(true);
+            await fetch('https://hidden-wave-36381.herokuapp.com/items')
+                .then(res => res.json())
+                .then(data => {
+                    setItems(data);
+                })
+            setLoading(false);
+        }
+        loadData();
+    }, []);
+
     const navigate = useNavigate();
     const handleManageInventories = () => {
         navigate('/manageinventories');
@@ -20,14 +34,16 @@ const Home = () => {
             </header>
             <section className='items-section mt-14'>
                 <h1 className='text-center text-4xl font-semibold my-8'>Collections</h1>
-                <div className='items grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10'>
-                    {
-                        items.slice(0, 6).map(item => <Item
-                            key={item._id}
-                            item={item}
-                        ></Item>)
-                    }
-                </div>
+                {
+                    loading ? <Spinner></Spinner> : <div className='items grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10'>
+                        {
+                            items.slice(0, 6).map(item => <Item
+                                key={item._id}
+                                item={item}
+                            ></Item>)
+                        }
+                    </div>
+                }
             </section>
             <section className='manage-inventories-section mt-10 mb-14 text-center'>
                 <button onClick={handleManageInventories} className='ml-3 btn-manage px-3 py-2 rounded-md text-lg font-semibold'>Manage Inventories</button>

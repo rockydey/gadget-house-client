@@ -1,17 +1,15 @@
 import React from 'react';
 import { css } from "@emotion/react";
-import RingLoader from "react-spinners/ClipLoader";
+import HashLoader from "react-spinners/HashLoader";
 
 const override = css`
   display: block;
-  margin: 2px;
-  border-color: #e5b94a;
 `;
 
 const Spinner = () => {
     return (
-        <div>
-            <RingLoader css={override} size={50} />
+        <div className='h-40 flex items-center justify-center'>
+            <HashLoader color='#e5b94a' css={override} size={50} />
         </div>
     );
 };
