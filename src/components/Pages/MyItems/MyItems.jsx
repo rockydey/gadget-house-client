@@ -21,7 +21,7 @@ const MyItems = () => {
             const email = user.email;
             const url = `https://hidden-wave-36381.herokuapp.com/myitems?email=${email}`;
             const { data } = await axios.get(url);
-            setMyItems(data)
+            setMyItems(data);
         };
         getItem();
     }, [user]);
@@ -35,8 +35,10 @@ const MyItems = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    const remain = myItems.filter(item => item._id !== id);
-                    setMyItems(remain);
+                    if (data.deletedCount > 0) {
+                        const remain = myItems.filter(item => item._id !== id);
+                        setMyItems(remain);
+                    }
                 });
         }
     };
@@ -44,13 +46,10 @@ const MyItems = () => {
     return (
         <div className='my-14 my-item'>
             {
-                myItems.length === 0 ? '' : <h1 className='text-center text-4xl font-semibold my-8'>All Items</h1>
+                myItems.length !== 0 ? <h1 className='text-center text-4xl font-semibold my-8'>All Items</h1> : ''
             }
             {
-                myItems.length === 0 ? <div className='sorry flex flex-col items-center'>
-                    <h1 className='text-center text-2xl font-semibold my-8'>Sorry, you didn't add any items!</h1>
-                    <button onClick={handleAddItem} className='btn-add-item ml-3 px-3 py-2 rounded-md text-lg font-semibold text-white'>Add Item Now</button>
-                </div> : <div className='items grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10'>
+                myItems.length !== 0 ? <div className='items grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10'>
                     {
                         myItems.map(item => <ManageItem
                             key={item._id}
@@ -58,6 +57,9 @@ const MyItems = () => {
                             handleDeleteDevice={handleDeleteDevice}
                         ></ManageItem>)
                     }
+                </div> : <div className='sorry flex flex-col items-center'>
+                    <h1 className='text-center text-2xl font-semibold my-8'>Sorry, you didn't add any items!</h1>
+                    <button onClick={handleAddItem} className='btn-add-item ml-3 px-3 py-2 rounded-md text-lg font-semibold text-white'>Add Item Now</button>
                 </div>
             }
         </div>
