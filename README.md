@@ -1,6 +1,6 @@
 # Getting Started with Gadget House
 
-Live Website Link : [Click Here](https://github.com/facebook/create-react-app).
+Live Website Link : [Click Here](https://laptop-warehouse-management.web.app/).
 
 ## About the website
 
