@@ -4,6 +4,14 @@ import Item from '../Shared/Item/Item';
 import Spinner from '../Shared/Spinner/Spinner';
 import './Home.css';
 import infographic from '../../../images/warehouse infographic.png';
+import apple from '../../../images/apple.png';
+import lenovo from '../../../images/lenovo.png';
+import hp from '../../../images/hp.jpg';
+import asus from '../../../images/asus.png';
+import samsung from '../../../images/samsung.png';
+import mi from '../../../images/mi.png';
+import oneplus from '../../../images/oneplus.png';
+import oppo from '../../../images/oppo.png';
 
 const Home = () => {
     const [items, setItems] = useState([]);
@@ -65,6 +73,19 @@ const Home = () => {
                         <p className='mt-5 text-lg'>Get predictive vessel ETA with real-time updates, rates announcements, Spot offers. Track all supply chain data in one place. Shipping should be easy. That is why we make it easy to manage your shipments online. From finding a price and making bookings to submitting documents and tracking cargo. The simple way to ship your goods and cargo with an easy online booking system, a fixed price and guaranteed loading.</p>
                         <button onClick={handleRegister} className='btn-register text-white px-4 py-2 rounded-lg text-xl font-normal mt-5'>Register Now</button>
                     </div>
+                </div>
+            </section>
+            <section className='brand-section mb-14 md:mx-20 mx-5'>
+                <h1 className='text-center text-3xl font-semibold my-8 uppercase'>Shop By Brands</h1>
+                <div className='grid lg:grid-cols-8 md:grid-cols-4 grid-cols-2 gap-5 items-center justify-center img-div'>
+                    <img width={150} src={oppo} alt="" />
+                    <img width={150} src={apple} alt="" />
+                    <img width={150} src={samsung} alt="" />
+                    <img width={150} src={lenovo} alt="" />
+                    <img width={150} src={mi} alt="" />
+                    <img width={150} src={hp} alt="" />
+                    <img width={150} src={oneplus} alt="" />
+                    <img width={150} src={asus} alt="" />
                 </div>
             </section>
         </div>
