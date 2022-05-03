@@ -5,6 +5,7 @@ import auth from '../../../firebase.init';
 import axios from 'axios';
 import ManageItem from '../Shared/ManageItem/ManageItem';
 import { useNavigate } from 'react-router-dom';
+import { signOut } from 'firebase/auth';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
@@ -17,14 +18,25 @@ const MyItems = () => {
     }
 
     useEffect(() => {
-        const getItem = async () => {
+        const getItems = async () => {
             const email = user.email;
             const url = `https://hidden-wave-36381.herokuapp.com/myitems?email=${email}`;
-            const { data } = await axios.get(url);
-            setMyItems(data);
+            try {
+                const { data } = await axios.get(url, {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                    }
+                });
+                setMyItems(data);
+            } catch (error) {
+                if (error.response.status === 401 || error.response.status === 401) {
+                    signOut(auth);
+                    navigate('/login');
+                }
+            }
         };
-        getItem();
-    }, [user]);
+        getItems();
+    }, [user, navigate]);
 
     const handleDeleteDevice = id => {
         const confirm = window.confirm("Are you sure you want to delete?");

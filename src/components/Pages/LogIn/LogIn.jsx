@@ -7,6 +7,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import auth from '../../../firebase.init';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 const LogIn = () => {
     const emailRef = useRef('');
@@ -17,12 +18,12 @@ const LogIn = () => {
     const [signInWithGoogle, user1] = useSignInWithGoogle(auth);
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth);
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        signInWithEmailAndPassword(auth, email, password)
+        await signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 const user = userCredential.user;
                 setUser2(user);
@@ -31,6 +32,9 @@ const LogIn = () => {
                 const errorMessage = error.message;
                 setError2(errorMessage);
             });
+        const { data } = await axios.post('https://hidden-wave-36381.herokuapp.com/login', { email });
+        localStorage.setItem("accessToken", data.accessToken);
+        navigate(from, { replace: true });
     };
 
     const resetPassword = async () => {
@@ -48,7 +52,7 @@ const LogIn = () => {
     };
 
     if (user1 || user2) {
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
     }
     return (
         <div className='login p-6 mx-auto my-14 rounded-xl'>

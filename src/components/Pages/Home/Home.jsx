@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Item from '../Shared/Item/Item';
 import Spinner from '../Shared/Spinner/Spinner';
 import './Home.css';
-import infographic from '../../../images/warehouse infographic.png'
+import infographic from '../../../images/warehouse infographic.png';
 
 const Home = () => {
     const [items, setItems] = useState([]);
@@ -40,7 +40,7 @@ const Home = () => {
                 <a href='#items' className='px-4 py-2 rounded-full text-xl font-normal'>Show Items</a>
             </header>
             <section className='items-section my-14'>
-                <h1 className='text-center text-4xl font-semibold my-8'>Collections</h1>
+                <h1 className='text-center text-4xl font-semibold my-8 uppercase'>Collections</h1>
                 {
                     loading ? <Spinner></Spinner> : <div className='items grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10'>
                         {
@@ -55,7 +55,7 @@ const Home = () => {
             <section className='manage-inventories-section text-center'>
                 <button onClick={handleManageInventories} className='ml-3 btn-manage px-3 py-2 rounded-md text-lg font-semibold'>Manage Inventories</button>
             </section>
-            <section className='infographic-section my-14 mx-20'>
+            <section className='infographic-section my-14 md:mx-20 mx-5'>
                 <div className='grid lg:grid-cols-2 grid-cols-1 gap-8'>
                     <div>
                         <img width={600} className='rounded-xl' src={infographic} alt="" />

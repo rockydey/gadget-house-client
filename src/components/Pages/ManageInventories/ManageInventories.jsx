@@ -44,7 +44,7 @@ const ManageInventories = () => {
     return (
         <div className='manage-inventories my-14'>
             <div>
-                <h1 className='text-center text-4xl font-semibold my-8'>All Collections</h1>
+                <h1 className='text-center text-4xl font-semibold my-8 uppercase'>All Collections</h1>
                 {
                     loading ? <Spinner></Spinner> : <div className='items grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10'>
                         {
