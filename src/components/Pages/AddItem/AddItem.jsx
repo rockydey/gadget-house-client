@@ -59,7 +59,7 @@ const AddItem = () => {
             <h1 className='text-center text-2xl font-semibold mb-3'>Add New Item</h1>
             <form onSubmit={handleAddItem} className="product-form flex flex-col">
                 <label className='font-semibold mb-1' htmlFor="email">Your Email</label>
-                <input className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" value={user.email} name="email" id="email" disabled/>
+                <input className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" value={user.email} name="email" id="email" disabled />
                 <label className='font-semibold mb-1' htmlFor="name">Product Name</label>
                 <input autoComplete='off' ref={productNameRef} className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" name="name" id="name" placeholder='Enter Your Product Name' required />
                 <label className='font-semibold mb-1' htmlFor="price">Product Price</label>

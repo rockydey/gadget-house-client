@@ -51,8 +51,14 @@ const LogIn = () => {
         navigate('/signup');
     };
 
-    if (user1 || user2) {
-        // navigate(from, { replace: true });
+    if (user1) {
+        const email = user1.user.email;
+        const setItemLocal = async () => {
+            const { data } = await axios.post('https://hidden-wave-36381.herokuapp.com/login', { email });
+            localStorage.setItem("accessToken", data.accessToken);
+            navigate(from, { replace: true });
+        }
+        setItemLocal();
     }
     return (
         <div className='login p-6 mx-auto my-14 rounded-xl'>

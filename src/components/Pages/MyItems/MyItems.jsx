@@ -28,8 +28,9 @@ const MyItems = () => {
                     }
                 });
                 setMyItems(data);
-            } catch (error) {
-                if (error.response.status === 401 || error.response.status === 401) {
+            }
+            catch (error) {
+                if (error.response.status === 401 || error.response.status === 403) {
                     signOut(auth);
                     navigate('/login');
                 }

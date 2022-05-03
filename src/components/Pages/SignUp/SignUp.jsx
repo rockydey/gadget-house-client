@@ -1,17 +1,17 @@
 import React, { useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Google from '../../../images/google.png';
 import './SignUp.css';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 
 const SignUp = () => {
     const [signInWithGoogle, user1] = useSignInWithGoogle(auth);
     const [
         createUserWithEmailAndPassword,
-        user2,
         error2,
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
 
@@ -20,13 +20,16 @@ const SignUp = () => {
     const confirmPasswordRef = useRef('');
     const [errorValue, setErrorValue] = useState('');
     const [agree, setAgree] = useState(false);
+
     const navigate = useNavigate();
+    let location = useLocation();
+    let from = location.state?.from?.pathname || "/home";
 
     const switchLogIn = () => {
         navigate('/login');
     };
 
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
 
         const email = emailRef.current.value;
@@ -38,12 +41,21 @@ const SignUp = () => {
             return;
         }
 
-        createUserWithEmailAndPassword(email, password);
+        await createUserWithEmailAndPassword(email, password);
         toast("Verification Email Sent!!");
+        const { data } = await axios.post('https://hidden-wave-36381.herokuapp.com/login', { email });
+        localStorage.setItem("accessToken", data.accessToken);
+        navigate(from, { replace: true });
     };
 
-    if (user1 || user2) {
-        navigate('/');
+    if (user1) {
+        const email = user1.user.email;
+        const setItemLocal = async () => {
+            const { data } = await axios.post('https://hidden-wave-36381.herokuapp.com/login', { email });
+            localStorage.setItem("accessToken", data.accessToken);
+            navigate(from, { replace: true });
+        }
+        setItemLocal();
     }
     return (
         <div className='login p-6 mx-auto my-14 rounded-xl'>
