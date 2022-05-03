@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import './AddItem.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 
@@ -15,8 +14,6 @@ const AddItem = () => {
     const supplierNameRef = useRef('');
     const imageRef = useRef('');
     const descriptionRef = useRef('');
-
-    const navigate = useNavigate();
 
     const handleAddItem = event => {
         event.preventDefault();
@@ -49,9 +46,15 @@ const AddItem = () => {
             .then(data => {
                 if (data.acknowledged === true) {
                     toast("Item Added Successfully!!");
-                    navigate('/manageinventories')
                 }
             });
+
+        productNameRef.current.value = '';
+        priceRef.current.value = '';
+        quantityRef.current.value = '';
+        supplierNameRef.current.value = '';
+        imageRef.current.value = '';
+        descriptionRef.current.value = '';
     };
 
     return (
