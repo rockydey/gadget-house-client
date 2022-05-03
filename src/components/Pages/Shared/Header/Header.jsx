@@ -35,10 +35,10 @@ const Header = () => {
                         user ? <CustomLink className='mx-4 w-full text-lg' to='/manageinventories'>Manage Inventory</CustomLink> : ''
                     }
                     {
-                        user ? <CustomLink className='mx-4 w-full text-lg' to='/additem'>Add Item</CustomLink> : ''
+                        user ? <CustomLink className='mx-4 w-full text-lg' to='/additem'>Add Inventory</CustomLink> : ''
                     }
                     {
-                        user ? <CustomLink className='mx-4 w-full text-lg' to='/myitems'>My Items</CustomLink> : ''
+                        user ? <CustomLink className='mx-4 w-full text-lg' to='/myitems'>My Inventories</CustomLink> : ''
                     }
                     {
                         user ? <CustomLink onClick={logout} className='login-btn ml-4 text-white text-lg rounded-full px-4 py-2 lg:mt-0 mt-1.5' to='/login'>Log Out</CustomLink> : <CustomLink className='login-btn ml-4 text-white text-lg rounded-full px-4 py-2 lg:mt-0 mt-1.5' to='/login'>Log In</CustomLink>
