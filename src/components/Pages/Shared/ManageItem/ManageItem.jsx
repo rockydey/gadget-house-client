@@ -9,7 +9,7 @@ const ManageItem = ({ item, handleDeleteDevice }) => {
         navigate(`/inventory/${id}`);
     }
     return (
-        <div className='item mx-auto rounded-md p-3' id='items'>
+        <div className='item mx-auto rounded-md p-3'>
             <img className='w-40' src={picture} alt="" />
             <div className='mt-3'>
                 <h3 className='text-xl font-semibold mb-1'>{name}</h3>

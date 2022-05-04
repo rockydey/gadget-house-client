@@ -3,9 +3,9 @@ import './MyItems.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import axios from 'axios';
-import ManageItem from '../Shared/ManageItem/ManageItem';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import MyItem from '../Shared/MyItem/MyItem';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
@@ -59,16 +59,16 @@ const MyItems = () => {
     return (
         <div className='my-14 my-item'>
             {
-                myItems.length !== 0 ? <h1 className='text-center text-4xl font-semibold my-8'>All Items</h1> : ''
+                myItems.length !== 0 ? <h1 className='text-center text-4xl font-semibold my-8'>My Items</h1> : ''
             }
             {
-                myItems.length !== 0 ? <div className='items grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10'>
+                myItems.length !== 0 ? <div className='items justify-items-center grid lg:grid-cols-2 grid-cols-1 gap-10'>
                     {
-                        myItems.map(item => <ManageItem
+                        myItems.map(item => <MyItem
                             key={item._id}
                             item={item}
                             handleDeleteDevice={handleDeleteDevice}
-                        ></ManageItem>)
+                        ></MyItem>)
                     }
                 </div> : <div className='sorry flex flex-col items-center'>
                     <h1 className='text-center text-2xl font-semibold my-8'>Sorry, you didn't add any items!</h1>
