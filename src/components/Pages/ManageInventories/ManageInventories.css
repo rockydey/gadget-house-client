@@ -2,3 +2,17 @@
     border: 2px solid #e5b94a;
     color: #e5b94a;
 }
+
+.pagination button {
+    margin-right: 10px;
+    background-color: white;
+    border: 1px solid #e5b94a;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.pagination .selected {
+    background-color: #e5b94a;
+    color: white;
+}

@@ -7,13 +7,17 @@ import { useNavigate } from 'react-router-dom';
 const ManageInventories = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [pagesCount, setPagesCount] = useState(0);
+    const [size, setSize] = useState(9);
+    const [page, setPage] = useState(0);
 
     const navigate = useNavigate();
 
     useEffect(() => {
         const loadData = async () => {
             setLoading(true);
-            await fetch('https://hidden-wave-36381.herokuapp.com/items')
+            const url = `https://hidden-wave-36381.herokuapp.com/items?page=${page}&size=${size}`
+            await fetch(url)
                 .then(res => res.json())
                 .then(data => {
                     setItems(data);
@@ -21,6 +25,15 @@ const ManageInventories = () => {
             setLoading(false);
         }
         loadData();
+    }, [page, size]);
+
+    useEffect(() => {
+        fetch('https://hidden-wave-36381.herokuapp.com/itemsCount')
+            .then(res => res.json())
+            .then(pages => {
+                const count = pages.count;
+                setPagesCount(Math.ceil(count / 9));
+            });
     }, []);
 
     const handleDeleteDevice = id => {
@@ -32,8 +45,10 @@ const ManageInventories = () => {
             })
                 .then(res => res.json())
                 .then(data => {
-                    const remain = items.filter(item => item._id !== id);
-                    setItems(remain);
+                    if (data.deletedCount > 0) {
+                        const remain = items.filter(item => item._id !== id);
+                        setItems(remain);
+                    }
                 });
         }
     };
@@ -55,6 +70,14 @@ const ManageInventories = () => {
                             ></ManageItem>)
                         }
                     </div>
+                }
+            </div>
+            <div className='pagination text-center mt-10'>
+                {
+                    [...Array(pagesCount).keys()].map(number => <button
+                        className={page === number ? "selected" : ''}
+                        onClick={() => setPage(number)}
+                    >{number + 1}</button>)
                 }
             </div>
             <div className='text-center mt-10'>
