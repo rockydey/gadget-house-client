@@ -1,4 +1,19 @@
-.item .btn-delete {
+.manage-item {
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    width: 460px;
+}
+
+.manage-item .manage-btn .btn-stock {
+    background-color: #e5b94a;
+}
+
+.manage-item .manage-btn .btn-delete {
     border: 1px solid #e5b94a;
     color: #e5b94a;
+}
+
+@media only screen and (max-width: 768px) {
+    .manage-item{
+        width: 380px;
+    }
 }

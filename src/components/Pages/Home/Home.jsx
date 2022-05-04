@@ -76,7 +76,7 @@ const Home = () => {
                 </div>
             </section>
             <section className='brand-section mb-14 md:mx-20 mx-5'>
-                <h1 className='text-center text-3xl font-semibold my-8 uppercase'>Shop By Brands</h1>
+                <h1 className='text-center text-3xl font-semibold my-8 uppercase'>Our Supportive Brands</h1>
                 <div className='grid lg:grid-cols-8 md:grid-cols-4 grid-cols-2 gap-5 items-center justify-center img-div'>
                     <img width={150} src={oppo} alt="" />
                     <img width={150} src={apple} alt="" />

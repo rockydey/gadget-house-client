@@ -8,7 +8,7 @@ const ManageInventories = () => {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(false);
     const [pagesCount, setPagesCount] = useState(0);
-    const [size, setSize] = useState(9);
+    const [size] = useState(9);
     const [page, setPage] = useState(0);
 
     const navigate = useNavigate();
@@ -61,7 +61,7 @@ const ManageInventories = () => {
             <div>
                 <h1 className='text-center text-4xl font-semibold my-8 uppercase'>All Collections</h1>
                 {
-                    loading ? <Spinner></Spinner> : <div className='items grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10'>
+                    loading ? <Spinner></Spinner> : <div className='items grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 justify-items-center lg:gap-5 md:gap-x-3 md:gap-y-5 gap-y-10 lg:mx-10'>
                         {
                             items.map(item => <ManageItem
                                 key={item._id}

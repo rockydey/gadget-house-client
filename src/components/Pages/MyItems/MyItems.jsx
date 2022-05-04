@@ -6,10 +6,12 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
 import MyItem from '../Shared/MyItem/MyItem';
+import Spinner from '../Shared/Spinner/Spinner';
 
 const MyItems = () => {
     const [user] = useAuthState(auth);
     const [myItems, setMyItems] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     const navigate = useNavigate();
 
@@ -19,6 +21,7 @@ const MyItems = () => {
 
     useEffect(() => {
         const getItems = async () => {
+            setLoading(true);
             const email = user.email;
             const url = `https://hidden-wave-36381.herokuapp.com/myitems?email=${email}`;
             try {
@@ -35,6 +38,7 @@ const MyItems = () => {
                     navigate('/login');
                 }
             }
+            setLoading(false);
         };
         getItems();
     }, [user, navigate]);
@@ -62,7 +66,7 @@ const MyItems = () => {
                 myItems.length !== 0 ? <h1 className='text-center text-4xl font-semibold my-8'>My Items</h1> : ''
             }
             {
-                myItems.length !== 0 ? <div className='items justify-items-center grid lg:grid-cols-2 grid-cols-1 gap-10'>
+                loading ? <Spinner></Spinner> : myItems.length !== 0 ? <div className='items justify-items-center grid lg:grid-cols-2 grid-cols-1 gap-10'>
                     {
                         myItems.map(item => <MyItem
                             key={item._id}
