@@ -32,7 +32,7 @@ const Header = () => {
                     <CustomLink className='mx-4 w-full text-lg' to='/home'>Home</CustomLink>
                     <CustomLink className='mx-4 w-full text-lg' to='/blogs'>Blogs</CustomLink>
                     {
-                        user ? <CustomLink className='mx-4 w-full text-lg' to='/manageinventories'>Manage Inventory</CustomLink> : ''
+                        user ? <CustomLink className='mx-4 w-full text-lg' to='/manageinventories'>Manage Inventories</CustomLink> : ''
                     }
                     {
                         user ? <CustomLink className='mx-4 w-full text-lg' to='/additem'>Add Inventory</CustomLink> : ''

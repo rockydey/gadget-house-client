@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Item.css';
+import { CgAdd } from "react-icons/cg";
 
 const Item = ({ item }) => {
     const { _id, name, picture, quantity, supplier, price, description } = item;
@@ -9,16 +10,16 @@ const Item = ({ item }) => {
         navigate(`/inventory/${id}`);
     }
     return (
-        <div className='item mx-auto rounded-md p-3' id='items'>
-            <img className='w-40' src={picture} alt="" />
-            <div className='mt-3'>
+        <div className='flex items-center justify-center md:gap-5 gap-1 item mx-auto rounded-md md:p-3 px-1 py-3' id='items'>
+            <img className='md:w-40 w-28' src={picture} alt="" />
+            <div className=''>
                 <h3 className='text-xl font-semibold mb-1'>{name}</h3>
                 <p className='text-base'>Price: ${price}</p>
                 <p className='text-base'>Quantity: {quantity}</p>
                 <p className='mb-1 text-base'>Supplier: {supplier}</p>
-                <p className='w-80 mb-3'><small>{description}</small></p>
+                <p className=''><small>{description}</small></p>
             </div>
-            <button onClick={() => handleStockUpdate(_id)} className='btn-stock px-3 py-2 rounded-md text-white'>Update Stock</button>
+            <button onClick={() => handleStockUpdate(_id)} className='btn-stock px-4 py-3 rounded-lg text-white'><CgAdd></CgAdd></button>
         </div>
     );
 };
