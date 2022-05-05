@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './ManageItem.css';
-import { CCard, CCardBody, CCardFooter, CCardGroup, CCardImage, CCardText, CCardTitle } from '@coreui/react'
+import { CCard, CCardBody, CCardFooter, CCardGroup, CCardImage, CCardText, CCardTitle } from '@coreui/react';
 
 const ManageItem = ({ item, handleDeleteDevice }) => {
     const { _id, name, picture, quantity, supplier, price, description } = item;

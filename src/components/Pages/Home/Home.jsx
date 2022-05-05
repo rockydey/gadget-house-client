@@ -12,6 +12,9 @@ import samsung from '../../../images/samsung.png';
 import mi from '../../../images/mi.png';
 import oneplus from '../../../images/oneplus.png';
 import oppo from '../../../images/oppo.png';
+import LinearProgress from '@mui/material/LinearProgress';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 const Home = () => {
     const [items, setItems] = useState([]);
@@ -76,7 +79,7 @@ const Home = () => {
                 </div>
             </section>
             <section className='brand-section mb-14 md:mx-20 mx-5'>
-                <h1 className='text-center text-3xl font-semibold my-8 uppercase'>Our Supportive Brands</h1>
+                <h1 className='text-center md:text-3xl text-2xl font-semibold my-8 uppercase'>Our Supportive Brands</h1>
                 <div className='grid lg:grid-cols-8 md:grid-cols-4 grid-cols-2 gap-5 items-center justify-center img-div'>
                     <img width={150} src={oppo} alt="" />
                     <img width={150} src={apple} alt="" />
@@ -86,6 +89,55 @@ const Home = () => {
                     <img width={150} src={hp} alt="" />
                     <img width={150} src={oneplus} alt="" />
                     <img width={150} src={asus} alt="" />
+                </div>
+            </section>
+            <section className='progress-section mb-14 md:mx-20 mx-5'>
+                <h1 className='text-center md:text-3xl text-2xl font-semibold my-8 uppercase'>Our Company Progress</h1>
+                <div>
+                    <div className='mb-3'>
+                        <p className='font-semibold'>2019 :</p>
+                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                            <Box sx={{ width: '55%', mr: 1 }}>
+                                <LinearProgress sx={{ height: '20px', borderRadius: "10px" }} variant="determinate" color='error' />
+                            </Box>
+                            <Box sx={{ minWidth: 35 }}>
+                                <Typography variant="body2" color="text.secondary">55%</Typography>
+                            </Box>
+                        </Box>
+                    </div>
+                    <div className='mb-3'>
+                        <p className='font-semibold'>2020 :</p>
+                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                            <Box sx={{ width: '70%', mr: 1 }}>
+                                <LinearProgress sx={{ height: '20px', borderRadius: "10px" }} variant="determinate" color='secondary' />
+                            </Box>
+                            <Box sx={{ minWidth: 35 }}>
+                                <Typography variant="body2" color="text.secondary">70%</Typography>
+                            </Box>
+                        </Box>
+                    </div>
+                    <div className='mb-3'>
+                        <p className='font-semibold'>2021 :</p>
+                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                            <Box sx={{ width: '80%', mr: 1 }}>
+                                <LinearProgress sx={{ height: '20px', borderRadius: "10px" }} variant="determinate"  />
+                            </Box>
+                            <Box sx={{ minWidth: 35 }}>
+                                <Typography variant="body2" color="text.secondary">80%</Typography>
+                            </Box>
+                        </Box>
+                    </div>
+                    <div>
+                        <p className='font-semibold'>2022 :</p>
+                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                            <Box sx={{ width: '95%', mr: 1 }}>
+                                <LinearProgress sx={{ height: '20px', borderRadius: "10px" }} variant="determinate" color='success' />
+                            </Box>
+                            <Box sx={{ minWidth: 35 }}>
+                                <Typography variant="body2" color="text.secondary">95%</Typography>
+                            </Box>
+                        </Box>
+                    </div>
                 </div>
             </section>
         </div>
