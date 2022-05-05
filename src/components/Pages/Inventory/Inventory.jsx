@@ -75,7 +75,7 @@ const Inventory = () => {
                     <p className='mb-1 text-base'>Supplier: {item.supplier}</p>
                     <p className='w-80 mb-3'><small>{item.description}</small></p>
                 </div>
-                <button onClick={() => handleDelivered(id)} className='btn-stock px-3 py-2 rounded-md text-white text-lg'>Delivered</button>
+                <button onClick={() => handleDelivered(id)} className='btn-delivered px-3 py-2 rounded-md text-white text-lg'>Delivered</button>
             </div>
             <div className='restock'>
                 <h1 className='text-center text-3xl font-semibold mb-5'>Restock Item</h1>

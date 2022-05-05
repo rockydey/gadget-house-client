@@ -1,4 +1,8 @@
-.inventory .restock .restock-field .btn{
+.inventory .restock .restock-field .btn {
     background-color: #e5b94a;
     cursor: pointer;
+}
+
+.inventory .item .btn-delivered {
+    background-color: #e5b94a;
 }
