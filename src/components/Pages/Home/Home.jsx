@@ -15,6 +15,7 @@ import oppo from '../../../images/oppo.png';
 import LinearProgress from '@mui/material/LinearProgress';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import progress from '../../../images/progress.jpg';
 
 const Home = () => {
     const [items, setItems] = useState([]);
@@ -68,13 +69,13 @@ const Home = () => {
             </section>
             <section className='infographic-section my-14 md:mx-20 mx-5'>
                 <div className='grid lg:grid-cols-2 grid-cols-1 gap-8'>
-                    <div>
-                        <img width={600} className='rounded-xl' src={infographic} alt="" />
-                    </div>
-                    <div className='flex flex-col justify-center items-start'>
+                    <div className='flex flex-col lg:order-1 order-2 justify-center items-start'>
                         <h1 className='text-3xl font-semibold'>Warehouse Infographic</h1>
                         <p className='mt-5 text-lg'>Get predictive vessel ETA with real-time updates, rates announcements, Spot offers. Track all supply chain data in one place. Shipping should be easy. That is why we make it easy to manage your shipments online. From finding a price and making bookings to submitting documents and tracking cargo. The simple way to ship your goods and cargo with an easy online booking system, a fixed price and guaranteed loading.</p>
                         <button onClick={handleRegister} className='btn-register text-white px-4 py-2 rounded-lg text-xl font-normal mt-5'>Register Now</button>
+                    </div>
+                    <div className='lg:order-2 order-1'>
+                        <img width={600} className='rounded-xl' src={infographic} alt="" />
                     </div>
                 </div>
             </section>
@@ -93,50 +94,56 @@ const Home = () => {
             </section>
             <section className='progress-section mb-14 md:mx-20 mx-5'>
                 <h1 className='text-center md:text-3xl text-2xl font-semibold my-8 uppercase'>Our Company Progress</h1>
-                <div>
-                    <div className='mb-3'>
-                        <p className='font-semibold'>2019 :</p>
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <Box sx={{ width: '55%', mr: 1 }}>
-                                <LinearProgress sx={{ height: '20px', borderRadius: "10px" }} variant="determinate" color='error' />
-                            </Box>
-                            <Box sx={{ minWidth: 35 }}>
-                                <Typography variant="body2" color="text.secondary">55%</Typography>
-                            </Box>
-                        </Box>
-                    </div>
-                    <div className='mb-3'>
-                        <p className='font-semibold'>2020 :</p>
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <Box sx={{ width: '70%', mr: 1 }}>
-                                <LinearProgress sx={{ height: '20px', borderRadius: "10px" }} variant="determinate" color='secondary' />
-                            </Box>
-                            <Box sx={{ minWidth: 35 }}>
-                                <Typography variant="body2" color="text.secondary">70%</Typography>
-                            </Box>
-                        </Box>
-                    </div>
-                    <div className='mb-3'>
-                        <p className='font-semibold'>2021 :</p>
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <Box sx={{ width: '80%', mr: 1 }}>
-                                <LinearProgress sx={{ height: '20px', borderRadius: "10px" }} variant="determinate"  />
-                            </Box>
-                            <Box sx={{ minWidth: 35 }}>
-                                <Typography variant="body2" color="text.secondary">80%</Typography>
-                            </Box>
-                        </Box>
+                <div className='grid lg:grid-cols-2 grid-cols-1 items-center gap-8'>
+                    <div>
+                        <img width={600} className='rounded-xl' src={progress} alt="" />
                     </div>
                     <div>
-                        <p className='font-semibold'>2022 :</p>
-                        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                            <Box sx={{ width: '95%', mr: 1 }}>
-                                <LinearProgress sx={{ height: '20px', borderRadius: "10px" }} variant="determinate" color='success' />
+                        <h1 className='md:text-2xl text-xl font-semibold mb-5 uppercase'>Market Share: </h1>
+                        <div className='mb-3'>
+                            <p className='font-semibold'>2019 :</p>
+                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                <Box sx={{ width: '55%', mr: 1 }}>
+                                    <LinearProgress sx={{ height: '20px', borderRadius: "10px" }} variant="determinate" color='error' />
+                                </Box>
+                                <Box sx={{ minWidth: 35 }}>
+                                    <Typography variant="body2" color="text.secondary">55%</Typography>
+                                </Box>
                             </Box>
-                            <Box sx={{ minWidth: 35 }}>
-                                <Typography variant="body2" color="text.secondary">95%</Typography>
+                        </div>
+                        <div className='mb-3'>
+                            <p className='font-semibold'>2020 :</p>
+                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                <Box sx={{ width: '70%', mr: 1 }}>
+                                    <LinearProgress sx={{ height: '20px', borderRadius: "10px" }} variant="determinate" color='secondary' />
+                                </Box>
+                                <Box sx={{ minWidth: 35 }}>
+                                    <Typography variant="body2" color="text.secondary">70%</Typography>
+                                </Box>
                             </Box>
-                        </Box>
+                        </div>
+                        <div className='mb-3'>
+                            <p className='font-semibold'>2021 :</p>
+                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                <Box sx={{ width: '80%', mr: 1 }}>
+                                    <LinearProgress sx={{ height: '20px', borderRadius: "10px" }} variant="determinate" />
+                                </Box>
+                                <Box sx={{ minWidth: 35 }}>
+                                    <Typography variant="body2" color="text.secondary">80%</Typography>
+                                </Box>
+                            </Box>
+                        </div>
+                        <div>
+                            <p className='font-semibold'>2022 :</p>
+                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                <Box sx={{ width: '90%', mr: 1 }}>
+                                    <LinearProgress sx={{ height: '20px', borderRadius: "10px" }} variant="determinate" color='success' />
+                                </Box>
+                                <Box sx={{ minWidth: 35 }}>
+                                    <Typography variant="body2" color="text.secondary">90%</Typography>
+                                </Box>
+                            </Box>
+                        </div>
                     </div>
                 </div>
             </section>
