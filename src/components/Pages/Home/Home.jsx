@@ -50,7 +50,7 @@ const Home = () => {
             <section className='items-section my-14'>
                 <h1 className='text-center text-4xl font-semibold my-8 uppercase'>Collections</h1>
                 {
-                    loading ? <Spinner></Spinner> : <div className='items justify-items-center grid lg:grid-cols-2 grid-cols-1 gap-10 md:mx-20 mx-5'>
+                    loading ? <Spinner></Spinner> : <div className='items justify-items-center grid lg:grid-cols-2 grid-cols-1 gap-10 md:mx-20 mx-3'>
                         {
                             items.slice(0, 6).map(item => <Item
                                 key={item._id}

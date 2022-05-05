@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
+import Spinner from '../Shared/Spinner/Spinner';
 
 const AddItem = () => {
     const [user] = useAuthState(auth);
@@ -60,25 +61,27 @@ const AddItem = () => {
     return (
         <div className='add-item p-6 mx-auto my-14 rounded-xl'>
             <h1 className='text-center text-2xl font-semibold mb-3'>Add New Item</h1>
-            <form onSubmit={handleAddItem} className="product-form flex flex-col">
-                <label className='font-semibold mb-1' htmlFor="email">Your Email</label>
-                <input className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" value={user.email} name="email" id="email" disabled />
-                <label className='font-semibold mb-1' htmlFor="name">Product Name</label>
-                <input autoComplete='off' ref={productNameRef} className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" name="name" id="name" placeholder='Enter Your Product Name' required />
-                <label className='font-semibold mb-1' htmlFor="price">Product Price</label>
-                <input autoComplete='off' ref={priceRef} className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" name="price" id="price" placeholder='Enter Your Product Price' required />
-                <label className='font-semibold mb-1' htmlFor="quantity">Product Quantity</label>
-                <input autoComplete='off' ref={quantityRef} className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" name="quantity" id="quantity" placeholder='Enter Your Product Quantity' required />
-                <label className='font-semibold mb-1' htmlFor="supplier">Product Supplier</label>
-                <input autoComplete='off' ref={supplierNameRef} className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" name="supplier" id="supplier" placeholder='Enter Your Product Supplier Name' required />
-                <label className='font-semibold mb-1' htmlFor="image">Product Image</label>
-                <input autoComplete='off' ref={imageRef} className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" name="image" id="image" placeholder='Enter Your Product Image URL' required />
-                <label className='font-semibold mb-1' htmlFor="description">Product Description</label>
-                <textarea ref={descriptionRef} className='pr-10 py-2 pl-3 rounded-md' type="text" name="description" id="description" placeholder='Enter Your Product Description' required />
-                <div className='mt-6'>
-                    <input className='btn-add-item text-white text-lg font-semibold w-full py-2 rounded-full' type="submit" value="Add Item" />
-                </div>
-            </form>
+            {
+                !user ? <Spinner></Spinner> : <form onSubmit={handleAddItem} className="product-form flex flex-col">
+                    <label className='font-semibold mb-1' htmlFor="email">Your Email</label>
+                    <input className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" value={user.email} name="email" id="email" disabled />
+                    <label className='font-semibold mb-1' htmlFor="name">Product Name</label>
+                    <input autoComplete='off' ref={productNameRef} className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" name="name" id="name" placeholder='Enter Your Product Name' required />
+                    <label className='font-semibold mb-1' htmlFor="price">Product Price</label>
+                    <input autoComplete='off' ref={priceRef} className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" name="price" id="price" placeholder='Enter Your Product Price' required />
+                    <label className='font-semibold mb-1' htmlFor="quantity">Product Quantity</label>
+                    <input autoComplete='off' ref={quantityRef} className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" name="quantity" id="quantity" placeholder='Enter Your Product Quantity' required />
+                    <label className='font-semibold mb-1' htmlFor="supplier">Product Supplier</label>
+                    <input autoComplete='off' ref={supplierNameRef} className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" name="supplier" id="supplier" placeholder='Enter Your Product Supplier Name' required />
+                    <label className='font-semibold mb-1' htmlFor="image">Product Image</label>
+                    <input autoComplete='off' ref={imageRef} className='pr-10 py-2 pl-3 rounded-md mb-3' type="text" name="image" id="image" placeholder='Enter Your Product Image URL' required />
+                    <label className='font-semibold mb-1' htmlFor="description">Product Description</label>
+                    <textarea ref={descriptionRef} className='pr-10 py-2 pl-3 rounded-md' type="text" name="description" id="description" placeholder='Enter Your Product Description' required />
+                    <div className='mt-6'>
+                        <input className='btn-add-item text-white text-lg font-semibold w-full py-2 rounded-full' type="submit" value="Add Item" />
+                    </div>
+                </form>
+            }
         </div>
     );
 };
